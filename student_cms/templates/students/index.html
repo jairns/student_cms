@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<h1 class="text-center mb-3">Student Register</h1>
+<!-- If students exist -->
+{% if latest_student_list %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student DOB</th>
+                <th>Student Banner ID</th>
+                <th>Student Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through all the data and display it within td tags -->
+            {% for student in latest_student_list %}
+            <tr>
+                <td>{{student.name}}</td>
+                <td>{{student.dob}}</td>
+                <td>{{student.banner_id}}</td>
+                <td>{{student.course}}</td>
+            </tr>
+            {% endfor %}
+            <!-- End for loop -->
+        </tbody>
+    </table>
+</div>
+<!-- if latest_student_list is empty display the paragraph tag below -->
+{% else %}
+<p>No students available</p>
+{% endif %}
+{% endblock %}
